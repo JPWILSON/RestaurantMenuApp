@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<title>Add Menu Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('restaurants')}}">
+						<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logo.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1 class= "text-right large_heading">{{restaurant.name}}</h1>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+			<div class= " row main_section">
+				<div class = "spacer"></div>
+				<form action="{{url_for('newItem', rest_id = restaurant.id)}}" method = 'POST'>
+					<input type = 'text' size='30' name= 'name' placeholder='Name'>
+					<input type = 'text' size='30' name= 'price' placeholder='$'>
+					<input type = 'text' size='30' name= 'description' placeholder='Describ new item' 
+					style = 'width: 300px; height= 200px'>
+					<input type = 'submit' value = 'CREATE !!'>
+				</form>
+				<div class = "spacer"></div>
+			</div><!--end of container-->
+			<div class = "row"><hr></div>
+		</div> <!--end of container-->
+	</body>
+</html>

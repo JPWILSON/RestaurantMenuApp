@@ -1,0 +1,14 @@
+<!DOCTYPE>
+<html>
+	<head>
+	</head>
+	<body style = "background-color:#ecb3ff;">
+		<h1>Delete {{item.name}}</h1>
+		<p>Are you sure you want to delete this item?</p>
+		<form action="{{url_for('deleteMenuItem', restaurant_id = item.restaurant_id, item_id = item.id)}}"
+		method = 'POST'>
+			<input type = 'submit' value = 'Delete'>
+		</form>
+		<a href="{{url_for('menu', restaurant_id = item.restaurant_id)}}">Click</a> here to cancel
+	</body>
+</html>

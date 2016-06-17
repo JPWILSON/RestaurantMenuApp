@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv= "X-UA-Compatible" content= "IE-Edge">
+		<meta name = "viewport" content= "width=device-width, initial-scale=1">
+		<title>Restaurant List</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class= "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="#">
+						<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logo.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1 class= "text-right large_heading"> Welcome </h1>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+			<div class = "row main_section">
+				<div class = "col-md-4">
+				</div>
+				<div class = "col-md-4">
+					<h2 class= "text-center heading">Restaurants</h2>
+					<div class="row">
+						<ul class="rest-names">
+							{% for rest in restaurants %}
+							<li>
+								<a href="{{url_for('menu', rest_id = rest.id)}}">{{rest.name}}</a>
+							</li>
+							{%endfor%}
+						</ul>
+					</div>
+				</div>
+				<div class = "col-md-4">
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+		</div> <!-- container-->
+	</body>
+</html>

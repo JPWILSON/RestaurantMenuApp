@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body style="background-color:#ffffcc;">
+		<h1>{{rest.name}}</h1>
+		<div>
+			<a href = "{{url_for('newMenuItem', restaurant_id = rest.id)}}">
+				Add</a> item to menu<br>
+			<a href = "{{url_for('rest')}}">
+				Return</a> to list of restaurants<br><br>
+			{% with messages = get_flashed_messages()%}
+			{% if messages%}
+			<ul>
+				{%for message in messages%}
+				<li>{{message}}</li>
+				{%endfor %}
+			</ul>
+			{%endif%}
+			{%endwith%}
+			{%for i in menu_items%}
+			{{i.name}} &nbsp - &nbsp {{i.price}}<br>
+			{{i.description}}<br>
+			<a href = "{{url_for('editMenuItem', restaurant_id = rest.id, item_id = i.id)}}">
+				Edit</a>
+				 &nbsp 
+				 <a href= "{{url_for('deleteMenuItem', restaurant_id = rest.id, item_id = i.id)}}">
+				 Delete</a><br><br>
+			{%endfor%}
+		</div>
+	</body>
+</html>
